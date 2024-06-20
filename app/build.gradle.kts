@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -33,11 +34,25 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {
+    implementation(platform(libs.compose.bom))
+    testImplementation(platform(libs.compose.bom))
+    implementation(libs.bundles.compose)
+    implementation(libs.accompanist.permissions)
+
+    api(libs.slf4j.api)
+    implementation(libs.android.logback)
+    implementation(libs.papertrail.logback) {
+        exclude("ch.qos.logback")
+    }
 
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.preference)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
