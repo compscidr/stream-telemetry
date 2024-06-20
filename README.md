@@ -19,7 +19,7 @@ that, or to be able to stream to twitch and just have all the information presen
   - integration with gopro
 - Overlay
   - Current heartbeat
-  - Heartbeat graph
+  - Heartbeat graph (see https://github.com/topics/jetpack-compose-charts)
   - GPS map outline
   - GPS NSWE indicator
 - Streaming
