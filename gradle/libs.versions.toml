@@ -12,7 +12,7 @@ junit = "4.13.2"
 junitVersion = "1.2.1"
 kotlin = "2.0.10"
 material = "1.12.0"
-slf4j = "2.0.13"     # this should depend on what is supported by: https://github.com/tony19/logback-android
+slf4j = "2.0.14"     # this should depend on what is supported by: https://github.com/tony19/logback-android
 
 [libraries]
 accompanist_permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
