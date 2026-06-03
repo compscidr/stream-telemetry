@@ -10,7 +10,7 @@ coreKtx = "1.18.0"
 espressoCore = "3.7.0"
 junit = "4.13.2"
 junitVersion = "1.3.0"
-kotlin = "2.3.21"
+kotlin = "2.4.0"
 material = "1.14.0"
 slf4j = "2.0.18"     # this should depend on what is supported by: https://github.com/tony19/logback-android
 
