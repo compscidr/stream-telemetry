@@ -1,7 +1,7 @@
 [versions]
 agp = "9.3.1"
 accompanist = "0.37.3"
-appcompat = "1.7.1"
+appcompat = "1.8.0"
 android_logback = "3.0.0"
 androidx_preference = "1.2.1"
 compose_activity = "1.13.0"
