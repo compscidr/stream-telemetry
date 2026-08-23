@@ -60,7 +60,10 @@ class BLEScanner(private val context: Context) {
             context.getSystemService(Context.BLUETOOTH_SERVICE) as android.bluetooth.BluetoothManager
         val bluetoothAdapter = bluetoothManager.adapter
         val bluetoothLeScanner = bluetoothAdapter.bluetoothLeScanner
-
+        if (bluetoothLeScanner == null) {
+            logger.error("Cannot stop scanning because BT power is off")
+            return
+        }
         bluetoothLeScanner.stopScan(bleScanCallback)
     }
 }
