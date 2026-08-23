@@ -36,6 +36,7 @@ class BLEScanner(private val context: Context) {
             val error = "Cannot start scanning because BT power is off"
             logger.error(error)
             BluetoothViewModel.scanningError.value = error
+            isRunning.set(false)
             return
         }
         val scanSettings = ScanSettings.Builder()
@@ -56,6 +57,16 @@ class BLEScanner(private val context: Context) {
 
     @SuppressLint("MissingPermission")
     fun stopScan() {
+        logger.debug("Stopping scan")
+        val scanCallback = bleScanCallback
+        if (scanCallback == null) {
+            logger.error("Trying to stop but never started scanning")
+            isRunning.set(false)
+            return
+        }
+        bleScanCallback = null
+        isRunning.set(false)
+
         val bluetoothManager =
             context.getSystemService(Context.BLUETOOTH_SERVICE) as android.bluetooth.BluetoothManager
         val bluetoothAdapter = bluetoothManager.adapter
@@ -64,6 +75,6 @@ class BLEScanner(private val context: Context) {
             logger.error("Cannot stop scanning because BT power is off")
             return
         }
-        bluetoothLeScanner.stopScan(bleScanCallback)
+        bluetoothLeScanner.stopScan(scanCallback)
     }
 }
