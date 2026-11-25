@@ -5,7 +5,11 @@ plugins {
 
 android {
     namespace = "com.jasonernst.stream_telemetry"
-    compileSdk = 37
+    compileSdk {
+        version = release(37) {
+            minorApiLevel = 1
+        }
+    }
 
     defaultConfig {
         applicationId = "com.jasonernst.stream_telemetry"
